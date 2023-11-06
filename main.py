@@ -1,6 +1,8 @@
 # slot-machine
 
 MAX_LINES = 3
+MIN_BET = 1
+MAX_BET = 1000
 
 def deposit():
     while True:
