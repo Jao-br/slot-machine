@@ -1,8 +1,9 @@
 # slot-machine
 
 MAX_LINES = 3
-MIN_BET = 1
 MAX_BET = 1000
+MIN_BET = 1
+
 
 def deposit():
     while True:
@@ -12,9 +13,9 @@ def deposit():
             if amount > 0:
                 break
             else:
-                print("Amount must be greater than 0")
+                print("Amount must be greater than 0.")
         else:
-            print("Please enter a number")
+            print("Please enter a number.")
     return amount
 
 def get_number_of_lines():
@@ -28,12 +29,30 @@ def get_number_of_lines():
             else:
                 print("Enter a valid number os lines: ")
         else:
-            print("Please enter a number")
+            print("Please enter a number.")
     return lines
+
+
+def get_bet():
+    while True:
+        amount = input("What would you like to bet on each line? $ ")
+        if amount.isdigit():
+            amount = int(amount)
+            if MIN_BET <= amount <= MAX_BET:
+                break
+            else:
+                print(f"Amount must be between ${MIN_BET} - ${MAX_BET}.")
+        else:
+            print("Please enter a number")
+    return amount
 
 def main():
     balance = deposit()
     lines = get_number_of_lines()
+    bet = get_bet()
+    total_bet = bet * lines
+
+    print(f"You are betting ${bet} no {lines}. Total bet is equal to: ${total_bet}")
     print(balance, lines)   
 
 main()
